@@ -24,7 +24,7 @@ public class PostController {
         return postService.getAllPosts();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{id}")  // Get a post by its ID
     public ResponseEntity<Post> getPostById(@PathVariable String id) {
         Optional<Post> post = postService.getPostById(id);
         return post.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
@@ -32,14 +32,14 @@ public class PostController {
     }
 
 
-    
-    @PostMapping
+
+    @PostMapping // Create a new post
     public ResponseEntity<Post> createPost(@RequestBody Post post) {
         Post savedPost = postService.createPost(post);
         return new ResponseEntity<>(savedPost, HttpStatus.CREATED);
     }
 
-    @PutMapping
+    @PutMapping   // Update an existing post
     public ResponseEntity<Post> updatePost(@RequestBody PostDTO postDTO) {
         return postService.editPost(postDTO);
     }
