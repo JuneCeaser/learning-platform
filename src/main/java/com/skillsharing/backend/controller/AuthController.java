@@ -35,7 +35,7 @@ public class AuthController {
             String firstName = nameParts.length > 0 ? nameParts[0] : "";
             String lastName = nameParts.length > 1 ? nameParts[1] : "";
 
-            User user = new User();
+            User user = new User();  //userService.getUserByEmail(email);
             user.setEmail(email);
             user.setFirstName(firstName);
             user.setLastName(lastName);
