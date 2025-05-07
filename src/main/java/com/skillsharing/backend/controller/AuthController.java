@@ -23,7 +23,7 @@ public class AuthController {
         return "redirect:http://localhost:3000";
     }
 
-    @GetMapping("/api/user")
+  
     @ResponseBody
     public ResponseEntity<Object> getUsername(@AuthenticationPrincipal OAuth2User principal) {
         if (principal != null) {
