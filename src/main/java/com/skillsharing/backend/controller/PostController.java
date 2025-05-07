@@ -31,6 +31,8 @@ public class PostController {
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
+
+    
     @PostMapping
     public ResponseEntity<Post> createPost(@RequestBody Post post) {
         Post savedPost = postService.createPost(post);

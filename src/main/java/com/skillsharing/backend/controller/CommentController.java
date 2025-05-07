@@ -2,8 +2,8 @@ package com.skillsharing.backend.controller;
 
 import org.springframework.beans.factory.annotation.Autowired; // Imports the @Autowired annotation for dependency injection.
 import org.springframework.http.HttpStatus; // Imports HTTP status codes to be used in HTTP responses.
-import org.springframework.http.ResponseEntity; // Imports the ResponseEntity class for sending HTTP responses.
-import org.springframework.web.bind.annotation.*; // Imports annotations for defining REST endpoints.
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import com.skillsharing.backend.DTO.CommentDTO; // Imports a Data Transfer Object (DTO) for comment data.
 import com.skillsharing.backend.model.Comment; // Imports the Comment model class.
@@ -44,7 +44,7 @@ public class CommentController { // Begins the CommentController class definitio
         if (editedComment != null) { // Checks if the comment was successfully edited.
             return new ResponseEntity<>(editedComment, HttpStatus.OK); // Returns the edited comment with an HTTP 200 OK status.
         } else { // If the comment was not found or could not be edited.
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND); // Returns an HTTP 404 Not Found status.
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 }
