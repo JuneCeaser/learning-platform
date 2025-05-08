@@ -19,7 +19,7 @@ public class PostController {
     @Autowired
     private PostService postService;
 
-    @GetMapping
+    @GetMapping 
     public List<Post> getAllPosts() {
         return postService.getAllPosts();
     }
@@ -44,13 +44,13 @@ public class PostController {
         return postService.editPost(postDTO);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{id}")  // Delete a post by its ID
     public ResponseEntity<Void> deletePost(@PathVariable String id) {
         postService.deletePost(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @PostMapping("/like")
+    @PostMapping("/like")  // Like a post
     public ResponseEntity<Object> likePost(@RequestParam String postId, @RequestParam String userId) {
         return postService.likePost(postId,userId);
     }
