@@ -19,41 +19,43 @@ public class PostController {
     @Autowired
     private PostService postService;
 
-    @GetMapping
+    @GetMapping 
     public List<Post> getAllPosts() {
         return postService.getAllPosts();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{id}")  // Get a post by its ID
     public ResponseEntity<Post> getPostById(@PathVariable String id) {
         Optional<Post> post = postService.getPostById(id);
         return post.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @PostMapping
+
+
+    @PostMapping // Create a new post
     public ResponseEntity<Post> createPost(@RequestBody Post post) {
         Post savedPost = postService.createPost(post);
         return new ResponseEntity<>(savedPost, HttpStatus.CREATED);
     }
 
-    @PutMapping
+    @PutMapping   // Update an existing post
     public ResponseEntity<Post> updatePost(@RequestBody PostDTO postDTO) {
         return postService.editPost(postDTO);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{id}")  // Delete a post by its ID
     public ResponseEntity<Void> deletePost(@PathVariable String id) {
         postService.deletePost(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @PostMapping("/like")
+    @PostMapping("/like")  // Like a post
     public ResponseEntity<Object> likePost(@RequestParam String postId, @RequestParam String userId) {
         return postService.likePost(postId,userId);
     }
 
-    @GetMapping("user/{userId}")
+    @GetMapping("user/{userId}")  //users
     public List<Post> getPostByIdUserId(@PathVariable String userId) {
         return postService.getPostByIdUserId(userId);
     }
