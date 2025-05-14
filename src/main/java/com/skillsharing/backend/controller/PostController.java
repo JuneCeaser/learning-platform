@@ -55,7 +55,7 @@ public class PostController {
         return postService.likePost(postId,userId);
     }
 
-    @GetMapping("user/{userId}")
+    @GetMapping("user/{userId}")  //users
     public List<Post> getPostByIdUserId(@PathVariable String userId) {
         return postService.getPostByIdUserId(userId);
     }
