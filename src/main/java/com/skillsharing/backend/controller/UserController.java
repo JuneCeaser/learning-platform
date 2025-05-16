@@ -14,7 +14,7 @@ import java.util.List;
 @RequestMapping("/users")
 public class UserController {
 
-    @Autowired
+    @Autowired // UserController handles user-related operations
     private UserService userService;
 
     @PostMapping("/register")
@@ -32,7 +32,7 @@ public class UserController {
         return userService.getAllUsers();
     }
 
-    @PostMapping("/follow")
+    @PostMapping("/follow")  // Follow a user
     public ResponseEntity<Object> followUser(@RequestParam String userId, @RequestParam String FollowedUserId) {
         return userService.followUser(userId,FollowedUserId);
     }
