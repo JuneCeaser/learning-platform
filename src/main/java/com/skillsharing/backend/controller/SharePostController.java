@@ -16,7 +16,7 @@ public class SharePostController {
     @Autowired
     private SharePostService sharePostService;
 
-    @GetMapping
+    @GetMapping  //Share post 
     public List<SharePostModel> getSharePosts() {
         return sharePostService.getSharePosts();
     }
@@ -27,7 +27,7 @@ public class SharePostController {
         return new ResponseEntity<>(savedPost, HttpStatus.CREATED);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{id}") // Delete a shared post by its ID
     public ResponseEntity<Void> deletePost(@PathVariable String id) {
         sharePostService.deleteSharedPost(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
